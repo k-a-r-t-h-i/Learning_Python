@@ -1,0 +1,1 @@
+varmodpkg2="variable inside modpkg2 in pkg1"
