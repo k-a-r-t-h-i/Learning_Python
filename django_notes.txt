@@ -1,0 +1,66 @@
+>>> python -m venv django_project_1             #new virtual environment(venv)
+>>> dir                                         #listing folders
+>>> cd django_project_1                         #navigating to new venv
+>>> cd Scripts                                  #navigating to Scripts
+>>> activate                                    #activating venv
+>>> pip install django                          #installing django
+>>> django-admin version                        #checking version
+>>> django-admin startproject trail_project     #creating new project
+>>> django-admin startapp login                 #creating new app
+
+
+In settings INSTALLED_APPS add your apps
+
+In settings TEMPLATES list make DIRS as
+'DIRS': [os.path.join(BASE_DIR,'templates')],
+
+In settings add this below STATIC_URLS
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('login.urls'))  #include your new apps urls in main project urls
+]
+
+for all apps create own urls.py file and add that apps urls there and import views
+for mapping like this
+from . import views
+urlpatterns = [
+    path('',views.register, name = 'register')
+]
+
+In views this is how you handle a request
+def register(request):
+    return render(request, 'register.html')
+
+In html for a basic template use !tab
+
+To know about messages in django check django documentation 
+
+In urlpatterns the name parameter is for using href="{% url 'url1' %}" in HTML files 
+whatever name is given in name parameter will be given inside url
+the main advantage of this is you need not think of the path it will be configured 
+automatically
+urlpatterns = [
+    path('url1/',views.url1,name='url1'),
+    path('url2/',views.url2,name='url2'),
+    path('url3/',views.url3,name='url3')
+]
+
+yet to do
+built in users 
+custom 404
+
+to register the models
+>>>python manage.py makemigrations
+>>>python manage.py migrate
+
+then dont forget to add your models in admin.py file in your app like this
+from .models import Student, Staff
+admin.site.register(Student)
+admin.site.register(Staff)
+
+to create admin
+>>>python manage.py createsuperuser
