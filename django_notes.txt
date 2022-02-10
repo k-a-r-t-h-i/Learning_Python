@@ -64,3 +64,11 @@ admin.site.register(Staff)
 
 to create admin
 >>>python manage.py createsuperuser
+
+to run
+PS E:\projects\django_projects\django_venv\Scripts> .\activate
+(django_venv) PS E:\projects\django_projects\BonGen> python manage.py runserver
+
+bongen 
+user: karthi
+pass:1234
