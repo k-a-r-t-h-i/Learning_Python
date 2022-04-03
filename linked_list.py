@@ -34,7 +34,7 @@ print("Linked List")
 while True:
     print("Operations:")
     print("\t 1 to Append")
-    print("\t 2 to Delete")
+    print("\t 2 to Print")
 
     operation = int(input("Enter Operation Code: "))
 
